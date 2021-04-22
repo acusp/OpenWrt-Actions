@@ -50,8 +50,6 @@ jobs:
         chmod +x customize.sh
         git clone https://github.com/acusp/OpenWrt-Packages.git
         cd OpenWrt-Packages
-        rm -Rf *
-        git rm --cache *
         $GITHUB_WORKSPACE/customize.sh
 
     - name: Update packages
