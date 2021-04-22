@@ -56,6 +56,7 @@ jobs:
 
     - name: Update packages
       run: |
+        cd $GITHUB_WORKSPACE/OpenWrt-Packages
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +-%Y%m%d)"
-        git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/acusp/OpenWrt-Packages.git" HEAD
+        git push --quiet "https://${{ ACCESS_TOKEN }}@github.com/acusp/OpenWrt-Packages.git"
