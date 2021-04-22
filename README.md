@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/github/languages/code-size/acusp/OpenWrt-Actions?color=blueviolet">
 </div>
 
-Automatically synchronize OpenWrt upstream code and related software packages.
+---
 
-And build OpenWrt firmware.
+Automatically synchronize OpenWrt upstream code and related software packages. And build OpenWrt firmware.
 

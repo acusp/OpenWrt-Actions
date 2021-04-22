@@ -56,5 +56,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/OpenWrt-Packages
         git add .
-        git commit -m "Update: auto sync upstream$\n $(git diff --name-only HEAD~ HEAD) $(date +-%Y%m%d)"
+        git commit -m "Update: auto sync upstream
+
+        $(git diff --name-only HEAD~ HEAD)
+        $(date +%Y%m%d)"
         git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/acusp/OpenWrt-Packages.git"
