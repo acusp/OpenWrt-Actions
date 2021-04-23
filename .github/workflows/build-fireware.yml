@@ -59,13 +59,14 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
+        sed -i "s/luci-theme-bootstrap/luci-theme-argon/" ./feeds/luci/collections/luci/Makefile
 
     - name: Customize config
       env:
         CONFIG_FILE: 'x86-64.config'
       run: |
         [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE openwrt/.config
-        make defconfig
+        cd openwrt && make defconfig
         
     - name: Download dl
       working-directory: ./openwrt
