@@ -31,6 +31,8 @@ svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 # PassWall
 git clone https://github.com/garypang13/smartdns-le # for luci-app-bypass
 git clone https://github.com/garypang13/luci-app-bypass
+sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' luci-app-bypass/Makefile
+sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' luci-app-bypass/Makefile
 git clone https://github.com/xiaorouji/openwrt-passwall
 mv_dir openwrt-passwall 
 # SSR-Plus
