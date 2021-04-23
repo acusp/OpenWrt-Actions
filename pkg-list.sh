@@ -41,9 +41,6 @@ git clone https://github.com/jerrykuku/luci-app-vssr
 # ---< Anti advertising >---
 #
 git clone https://github.com/garypang13/luci-app-dnsfilter
-svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome # for luci-app-adguardhome
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-adguardhome
-change_dir luci-app-adguardhome/Makefile
 git clone https://github.com/project-lede/luci-app-godproxy
 
 # ---< Game >---
