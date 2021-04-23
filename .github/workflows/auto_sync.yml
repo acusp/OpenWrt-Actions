@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2021 Acusp
 #
-# <https://github.com/acusp/OpenWrt-Packages>
+# <https://github.com/acusp/OpenWrt-Actions>
 #
 # Thanks for: https://github.com/kenzok8
 #
@@ -25,7 +25,7 @@ env:
 
 jobs:
   build:
-    name: Update & Build OpenWrt
+    name: Update Packages
     runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
@@ -47,11 +47,11 @@ jobs:
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
-        chmod +x customize.sh
+        chmod +x pkg-list.sh
         git clone https://github.com/acusp/OpenWrt-Packages.git
         cd OpenWrt-Packages
         rm -rf *
-        $GITHUB_WORKSPACE/customize.sh
+        $GITHUB_WORKSPACE/pkg-list.sh
 
     - name: Update packages
       run: |
