@@ -14,7 +14,7 @@ svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
 # ---< Science online >---
 #
 # OpenClash
-git clone https://github.com/frainzy1477/luci-app-clash
+#git clone https://github.com/frainzy1477/luci-app-clash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 # PassWall
 git clone https://github.com/garypang13/smartdns-le

@@ -56,6 +56,11 @@ jobs:
     - name: Update packages
       run: |
         cd $GITHUB_WORKSPACE/OpenWrt-Packages
+        msg=$(git diff --stat | tail -1)
         git add .
-        git commit -m "Sync: $(git diff --stat | tail -1)"
+        if [ -z $msg ];then
+          git commit -m "Sync: add new content"
+        else
+          git commit -m "Sync: $msg"
+        fi
         git push --quiet "https://${{ secrets.ACCESS_TOKEN }}@github.com/acusp/OpenWrt-Packages.git"
