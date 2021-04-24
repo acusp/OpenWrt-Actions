@@ -5,12 +5,16 @@
 #
 
 # user: root, password:password
+
 cp -f ../banner ./package/base-files/files/etc/banner
-
-# for Lean
-#rm -rf ./package/lean/luci-theme-argon
-
 sed -i '$a src-git acusp https://github.com/acusp/OpenWrt-Packages' ./feeds.conf.default
 sed -i 's/192.168.1.1/192.168.2.240/g' ./package/base-files/files/bin/config_generate
 #sed -i "s/hostname='OpenWrt/hostname='AC-OpenWrt/g" ./package/base-files/files/bin/config_generate
 #sed -i "s/timezone='UTC/timezone='CST-8/g" ./package/base-files/files/bin/config_generate
+
+# for offocial
+ln -s $(which upx) ./staging_dir/host/bin/
+ln -s $(which upx-ucl) ./staging_dir/host/bin/
+
+# for Lean
+#rm -rf ./package/lean/luci-theme-argon
