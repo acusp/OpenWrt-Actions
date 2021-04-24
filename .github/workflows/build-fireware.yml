@@ -90,6 +90,7 @@ jobs:
         du -h --max-depth=1 ./bin
 
     - name: Prepare Artifact
+      working-directory: ./openwrt
       run: |
         mkdir -p ./artifact/firmware
         rm -rf $(find ./bin/targets/ -type d -name "packages")
@@ -103,4 +104,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
-        path: artifact/firmware
+        path: openwrt/artifact/firmware
