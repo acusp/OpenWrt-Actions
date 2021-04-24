@@ -17,6 +17,9 @@ on:
   watch:
     types: [started]
 
+env:
+  TZ: Asia/Shanghai
+
 jobs:
   build:
     name: Build OpenWrt Job
@@ -43,6 +46,7 @@ jobs:
           autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
+        sudo timedatectl set-timezone "$TZ"
         df -h
 
     - name: Clone source code
@@ -63,7 +67,7 @@ jobs:
 
     - name: Customize config
       env:
-        CONFIG_FILE: 'x86-64.config'
+        CONFIG_FILE: 'lean_x86-64.config'
       run: |
         [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
