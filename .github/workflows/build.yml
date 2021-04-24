@@ -65,6 +65,7 @@ jobs:
         ./scripts/feeds install -a
         #sed -i "s/luci-theme-bootstrap/luci-theme-argon/" ./feeds/luci/collections/luci/Makefile
 
+
     - name: Customize config
       env:
         CONFIG_FILE: 'x86-64.config'
@@ -78,6 +79,9 @@ jobs:
         make download -j$(nproc) V=s
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        # add upx
+        ln -s $(which upx) ./staging_dir/host/bin/
+        ln -s $(which upx-ucl) ./staging_dir/host/bin/
 
     - name: Compile firmware
       working-directory: ./openwrt

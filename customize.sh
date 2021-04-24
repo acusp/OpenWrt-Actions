@@ -12,9 +12,5 @@ sed -i 's/192.168.1.1/192.168.2.240/g' ./package/base-files/files/bin/config_gen
 #sed -i "s/hostname='OpenWrt/hostname='AC-OpenWrt/g" ./package/base-files/files/bin/config_generate
 #sed -i "s/timezone='UTC/timezone='CST-8/g" ./package/base-files/files/bin/config_generate
 
-# for offocial
-ln -s $(which upx) ./staging_dir/host/bin/
-ln -s $(which upx-ucl) ./staging_dir/host/bin/
-
 # for Lean
 #rm -rf ./package/lean/luci-theme-argon
