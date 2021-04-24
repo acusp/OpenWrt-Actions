@@ -21,8 +21,8 @@ mv_dir() {
 # ---< Common dependency >---
 #
 svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping
-svn so https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/tcpping
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2
 
 # ---< System >---
 #
