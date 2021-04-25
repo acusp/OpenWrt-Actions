@@ -22,6 +22,7 @@ on:
 
 env:
   TZ: Asia/Shanghai
+  REPO_URL: https://github.com/acusp/OpenWrt-Packages.git
 
 jobs:
   build:
@@ -46,16 +47,15 @@ jobs:
         
     - name: Clone packages
       run: |
-        cd $GITHUB_WORKSPACE
         chmod +x pkg-list.sh
-        git clone https://github.com/acusp/OpenWrt-Packages.git
-        cd OpenWrt-Packages
+        git clone --depth 1 $REPO_URL packages
+        cd packages
         rm -rf *
         $GITHUB_WORKSPACE/pkg-list.sh
 
     - name: Update packages
+      working-directory: ./packages
       run: |
-        cd $GITHUB_WORKSPACE/OpenWrt-Packages
         msg=$(git diff --stat | tail -1)
         git add .
         if [ -z $msg ];then

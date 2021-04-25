@@ -19,6 +19,12 @@ on:
 
 env:
   TZ: Asia/Shanghai
+  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_BRANCH: openwrt-21.02
+  DIY_DIR: $GITHUB_WORKSPACE/customize
+  PRE_FEEDS: $DIY_DIR/pre_feeds.sh
+  CONFIG_DIR: $GITHUB_WORKSPACE/config
+  CONFIG_FILE: $CONFIG_DIR/x86-64.config
 
 jobs:
   build:
@@ -50,28 +56,23 @@ jobs:
         df -h
 
     - name: Clone source code
-      env: 
-        REPO_URL: https://github.com/openwrt/openwrt
-        REPO_BRANCH: openwrt-21.02
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         
     - name: Update & install feeds
+      working-directory: ./openwrt
       run: |
-        chmod +x ./customize.sh
-        cd openwrt && ../customize.sh
+        chmod +x $PRE_FEEDS
+        $PRE_FEEDS
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-        #sed -i "s/luci-theme-bootstrap/luci-theme-argon/" ./feeds/luci/collections/luci/Makefile
-
 
     - name: Customize config
-      env:
-        CONFIG_FILE: 'x86-64.config'
+      working-directory: ./openwrt
       run: |
-        [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE openwrt/.config
-        cd openwrt && make defconfig
+        [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE .config
+        make defconfig
         
     - name: Download dl
       working-directory: ./openwrt

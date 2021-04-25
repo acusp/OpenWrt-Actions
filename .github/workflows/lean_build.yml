@@ -12,13 +12,19 @@ on:
   #push:
     #branches:
     #  - main
-  schedule:
-    - cron: 0 0 1 * *
+  #schedule:
+    #- cron: 0 0 1 * *
   watch:
     types: [started]
 
 env:
   TZ: Asia/Shanghai
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  DIY_DIR: $GITHUB_WORKSPACE/customize
+  PRE_FEEDS: $DIY_DIR/pre_feeds.sh
+  CONFIG_DIR: $GITHUB_WORKSPACE/config
+  CONFIG_FILE: $CONFIG_DIR/lean_x86-64.config
 
 jobs:
   build:
@@ -50,27 +56,23 @@ jobs:
         df -h
 
     - name: Clone source code
-      env: 
-        REPO_URL: https://github.com/coolsnowwolf/lede
-        REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         
     - name: Update & install feeds
+      working-directory: ./openwrt
       run: |
-        chmod +x ./customize.sh
-        cd openwrt && ../customize.sh
+        chmod +x $PRE_FEEDS
+        $PRE_FEEDS
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-        sed -i "s/luci-theme-bootstrap/luci-theme-argon/" ./feeds/luci/collections/luci/Makefile
 
     - name: Customize config
-      env:
-        CONFIG_FILE: 'lean_x86-64.config'
+      working-directory: ./openwrt
       run: |
-        [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE openwrt/.config
-        cd openwrt && make defconfig
+        [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE .config
+        make defconfig
         
     - name: Download dl
       working-directory: ./openwrt
