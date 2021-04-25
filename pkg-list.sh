@@ -28,6 +28,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2
 #
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-netdata
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-autoreboot
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-lib-fs  # for filetransfer
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-filetransfer
 
 # ---< Science online >---
@@ -49,6 +50,7 @@ git clone https://github.com/jerrykuku/luci-app-vssr
 
 # ---< Anti advertising >---
 #
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus
 git clone https://github.com/garypang13/luci-app-dnsfilter
 git clone https://github.com/project-lede/luci-app-godproxy
@@ -77,6 +79,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffl
 git clone https://github.com/tty228/luci-app-serverchan
 git clone https://github.com/zzsj0928/luci-app-serverchand
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusicGo
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd  # crack KMS server
 
