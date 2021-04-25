@@ -27,6 +27,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2
 # ---< System >---
 #
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-netdata
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-autoreboot
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-filetransfer
 
 # ---< Science online >---
 #
@@ -47,6 +49,7 @@ git clone https://github.com/jerrykuku/luci-app-vssr
 
 # ---< Anti advertising >---
 #
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus
 git clone https://github.com/garypang13/luci-app-dnsfilter
 git clone https://github.com/project-lede/luci-app-godproxy
 
@@ -67,13 +70,15 @@ change_dir luci-app-aliddns/Makefile
 svn co https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
 svn co https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-koolddns
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload # Turbo ACC: FLOW,BBR,NAT,DNS.
 
 # ---< Others >---
 #
 git clone https://github.com/tty228/luci-app-serverchan
 git clone https://github.com/zzsj0928/luci-app-serverchand
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd  # crack KMS server
 
 # ---< Theme >---
 #
