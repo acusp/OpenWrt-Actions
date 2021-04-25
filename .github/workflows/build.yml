@@ -21,10 +21,8 @@ env:
   TZ: Asia/Shanghai
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-21.02
-  DIY_DIR: $GITHUB_WORKSPACE/customize
-  PRE_FEEDS: $DIY_DIR/pre_feeds.sh
-  CONFIG_DIR: $GITHUB_WORKSPACE/config
-  CONFIG_FILE: $CONFIG_DIR/x86-64.config
+  PRE_FEEDS: customize/pre_feeds.sh
+  CONFIG_FILE: config/x86-64.config
 
 jobs:
   build:
@@ -62,8 +60,8 @@ jobs:
     - name: Update & install feeds
       working-directory: ./openwrt
       run: |
-        chmod +x $PRE_FEEDS
-        $PRE_FEEDS
+        chmod +x $GITHUB_WORKSPACE/$PRE_FEEDS
+        $GITHUB_WORKSPACE/$PRE_FEEDS
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
@@ -71,8 +69,9 @@ jobs:
     - name: Customize config
       working-directory: ./openwrt
       run: |
-        [ -e $CONFIG_FILE ] && cp -f $CONFIG_FILE .config
+        [ -e $GITHUB_WORKSPACE/$CONFIG_FILE ] && cp -f $GITHUB_WORKSPACE/$CONFIG_FILE .config
         make defconfig
+        cp -rf $GITHUB_WORKSPACE/files .
         
     - name: Download dl
       working-directory: ./openwrt
