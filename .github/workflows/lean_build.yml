@@ -108,11 +108,11 @@ jobs:
     - name : Upload firmware
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt-Fireware
+        name: openwrt-firmware$(date +_%Y%m%d)_by_acusp
         path: openwrt/artifact/firmware
 
     - name : Upload Packages
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt-Packages
+        name: openwrt-packages$(date +_%Y%m%d)_by_acusp
         path: openwrt/artifact/packages
