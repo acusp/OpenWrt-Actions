@@ -69,6 +69,7 @@ svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-smartdns
 change_dir luci-app-smartdns/Makefile
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-aliddns
 change_dir luci-app-aliddns/Makefile
+svn co https://github.com/sirpdboy/netspeedtest/trunk/speedtest
 svn co https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest
 svn co https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/trunk/tencentcloud_ddns luci-app-tencentddns
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-koolddns
