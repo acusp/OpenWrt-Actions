@@ -82,6 +82,7 @@ git clone https://github.com/jerrykuku/luci-app-jd-dailybonus
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusicGo
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/vlmcsd
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-vlmcsd  # crack KMS server
 
 # ---< Theme >---
