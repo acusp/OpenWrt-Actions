@@ -96,4 +96,12 @@ svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci
 
 rm -rf ./*/.git ./*/.gitattributes ./*/.svn ./*/.github ./*/.gitignore
 
+# add zh_Hans
+for repo in `ls`;do
+    if [ -d $repo/po/zh-cn ];then
+        echo "zh-cn" > $repo/po/zh_Hans
+    fi
+done
+
+
 exit 0    
