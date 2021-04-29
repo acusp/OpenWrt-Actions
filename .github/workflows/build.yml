@@ -116,6 +116,8 @@ jobs:
 
     - name : Upload Packages
       uses: actions/upload-artifact@master
+      env:
+        data: $(date +_%Y%m%d)
       with:
-        name: "openwrt-packages$(date +_%Y%m%d)_by_acusp"
+        name: openwrt-packages${{ env.date }}_by_acusp
         path: openwrt/artifact/packages
